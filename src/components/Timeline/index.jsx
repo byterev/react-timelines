@@ -40,7 +40,10 @@ class Timeline extends Component {
     const grid = getGrid(timebar)
 
     return (
-      <div className="rt-timeline" style={{ width: time.timelineWidthStyle }}>
+      <div aria-hidden="true"
+        className="rt-timeline"
+        style={{ width: time.timelineWidthStyle }}
+      >
         {now && <NowMarker now={now} visible time={time} />}
         {pointerDate && (
           <PointerMarker date={pointerDate} time={time} visible={pointerVisible} highlighted={pointerHighlighted} />

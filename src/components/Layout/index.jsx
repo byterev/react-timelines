@@ -7,7 +7,7 @@ import { addListener, removeListener } from '../../utils/events'
 import raf from '../../utils/raf'
 import getNumericPropertyValue from '../../utils/getNumericPropertyValue'
 
-const noop = () => {}
+const noop = () => { }
 
 class Layout extends PureComponent {
   constructor(props) {
@@ -111,6 +111,33 @@ class Layout extends PureComponent {
 
   calculateTimelineViewportWidth = () => this.timeline.current.offsetWidth
 
+  onHorizScrollDown = e => {
+    const timeline = this.timeline.current
+    this.setState({
+      isDown: true,
+      startX: e.pageX - timeline.offsetLeft,
+      scrollLeft: timeline.scrollLeft
+    })
+  }
+
+  onHorizScrollLeft = () => {
+    this.setState({
+      isDown: false,
+    })
+  }
+
+  onHorizScrollMove = e => {
+    const { isDown, startX, scrollLeft } = this.state
+    if (!isDown)
+      return
+
+    const timeline = this.timeline.current
+    e.preventDefault()
+    const x = e.pageX - timeline.offsetLeft
+    const walk = (x - startX) * 1 // speed of scroll
+    timeline.scrollLeft = scrollLeft - walk
+  }
+
   handleLayoutChange = cb => {
     const { sidebarWidth, timelineViewportWidth, onLayoutChange } = this.props
 
@@ -156,7 +183,14 @@ class Layout extends PureComponent {
           />
         </div>
         <div className="rt-layout__main">
-          <div className="rt-layout__timeline" ref={this.timeline} onScroll={isSticky ? this.handleScrollX : noop}>
+          <div aria-hidden="true"
+            className="rt-layout__timeline"
+            ref={this.timeline}
+            onMouseMove={this.onHorizScrollMove}
+            onMouseDown={this.onHorizScrollDown}
+            onMouseLeave={this.onHorizScrollLeft}
+            onMouseUp={this.onHorizScrollLeft}
+            onScroll={isSticky ? this.handleScrollX : noop}>
             <Timeline
               now={now}
               time={time}

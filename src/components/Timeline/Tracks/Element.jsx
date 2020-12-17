@@ -7,16 +7,25 @@ import BasicElement from '../../Elements/Basic'
 const Element = props => {
   const { time, style, title, start, end, classes, dataSet, tooltip, clickElement } = props
 
-  const handleClick = () => {
-    clickElement(props)
+  const mouseDownCoords = e => {
+    window.checkForDrag = e.clientX
   }
+
+  const handleClick = e => {
+    const mouseUp = e.clientX
+    if (mouseUp < window.checkForDrag + 15 && mouseUp > window.checkForDrag - 15)
+      clickElement(props)
+  }
+
   const elementStyle = {
     ...time.toStyleLeftAndWidth(start, end),
     ...(clickElement ? { cursor: 'pointer' } : {}),
   }
 
   return (
-    <div className="rt-track__element" style={elementStyle} onClick={clickElement && handleClick && handleClick}>
+    <div className="rt-track__element" style={elementStyle}
+      onMouseDown={e => mouseDownCoords(e)}
+      onMouseUp={e => handleClick(e)}>
       <BasicElement
         title={title}
         start={start}

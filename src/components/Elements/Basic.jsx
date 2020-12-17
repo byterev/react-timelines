@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { getDayMonth } from '../../utils/formatDate'
+import moment from 'moment'
 import createClasses from '../../utils/classes'
 
 const buildDataAttributes = (attributes = {}) => {
@@ -21,16 +21,16 @@ const Basic = ({ title, start, end, style, classes, dataSet, tooltip }) => (
         // eslint-disable-next-line react/no-danger
         <div dangerouslySetInnerHTML={{ __html: tooltip.split('\n').join('<br>') }} />
       ) : (
-        <div>
-          <div>{title}</div>
           <div>
-            <strong>Start</strong> {getDayMonth(start)}
+            <div>{title}</div>
+            <div>
+              <strong>Ínicio:</strong> {moment(start).format('HH:mm DD MMM')}
+            </div>
+            <div>
+              <strong>Fim:</strong> {moment(end).format('HH:mm DD MMM')}
+            </div>
           </div>
-          <div>
-            <strong>End</strong> {getDayMonth(end)}
-          </div>
-        </div>
-      )}
+        )}
     </div>
   </div>
 )
