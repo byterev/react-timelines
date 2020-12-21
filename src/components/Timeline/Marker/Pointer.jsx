@@ -8,7 +8,7 @@ const PointerMarker = ({ time, date, visible, highlighted }) => (
   <Marker modifier="pointer" x={time.toX(date)} visible={visible} highlighted={highlighted}>
     <div>
       <div>
-        <strong>{moment(date).format('HH:mm')}</strong>
+        <strong>{moment(date).format('HH[h]mm')}</strong>
       </div>
     </div>
   </Marker>

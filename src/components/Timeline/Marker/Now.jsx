@@ -5,13 +5,36 @@ import moment from 'moment'
 import Marker from '.'
 
 class NowMarker extends PureComponent {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      now: moment().locale('pt')
+    }
+  }
+
+  currentDate = () => {
+    const { time } = this.props
+
+    setTimeout(this.currentDate, 1000*60)
+
+    this.setState({
+      now: moment().locale('pt'),
+      position: time.toX(moment().locale('pt').toDate())
+    })
+  }
+
+  componentDidMount() {
+    this.currentDate()
+  }
+
   render() {
-    const { now, time, visible } = this.props
+    const { time, visible } = this.props
     return (
-      <Marker modifier="now" x={time.toX(now)} visible={visible}>
+      <Marker modifier="now" x={this.state.position} visible={visible}>
         <div>
           <div>Agora</div>
-          <strong>{moment().format('HH:mm DD MMM')}</strong>
+          <strong>{this.state.now.format('HH[h]mm DD MMM')}</strong>
         </div>
       </Marker>
     )

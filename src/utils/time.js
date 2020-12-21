@@ -4,7 +4,7 @@ const create = ({ start, end, zoom, viewportWidth = 0, minWidth = 0 }) => {
   const duration = end - start
 
   const days = duration / MILLIS_IN_A_DAY
-  const daysZoomWidth = days * zoom
+  const daysZoomWidth = days * (zoom * 100)
 
   let timelineWidth
 
