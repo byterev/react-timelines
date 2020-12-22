@@ -11,11 +11,14 @@ const buildDataAttributes = (attributes = {}) => {
   return value
 }
 
-const Basic = ({ title, start, end, style, classes, dataSet, tooltip }) => (
+const Basic = ({ title, percentage, start, end, style, classes, dataSet, tooltip }) => (
   <div className={createClasses('rt-element', classes)} style={style} {...buildDataAttributes(dataSet)}>
     <div className="rt-element__content" aria-hidden="true">
-      <span className="rt-element__title">{title}</span>
+      <div className="rt-element__title">{title}</div>
     </div>
+    { percentage !== null &&
+      <div className="rt-element-percentange" style={{width: percentage + '%' }} aria-hidden="true"></div>
+    }
     <div className="rt-element__tooltip">
       {tooltip ? (
         // eslint-disable-next-line react/no-danger
@@ -24,10 +27,10 @@ const Basic = ({ title, start, end, style, classes, dataSet, tooltip }) => (
           <div>
             <div>{title}</div>
             <div>
-              <strong>Ínicio:</strong> {moment(start).format('HH:mm DD MMM')}
+              <strong>Ínicio:</strong> {moment(start).format('HH[h]mm DD MMM')}
             </div>
             <div>
-              <strong>Fim:</strong> {moment(end).format('HH:mm DD MMM')}
+              <strong>Fim:</strong> {moment(end).format('HH[h]mm DD MMM')}
             </div>
           </div>
         )}

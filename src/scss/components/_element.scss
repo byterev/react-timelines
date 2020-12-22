@@ -1,24 +1,39 @@
 .rt-element {
   $height: $react-timelines-track-height - 2 * $react-timelines-element-spacing;
 
-  position: relative;
+  display: flex;
   height: $height;
   line-height: $height;
   background: #06f;
   color: #fff;
-  text-align: center;
 }
 
 .rt-element__content {
+  left: 0;
   padding: 0 10px;
   overflow: hidden;
   white-space: nowrap;
   font-weight: bold;
   text-overflow: ellipsis;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.rt-element-percentange {
+  $height: $react-timelines-track-height - 2 * $react-timelines-element-spacing;
+
+  padding: 0 10px;
+  height: $height;
+  line-height: $height;
+  position: absolute;
+  background-color: #61b15ac4;
+  border-radius: 4px;
 }
 
 .rt-element__title {
   font-size: 0.7rem;
+  z-index: 1;
 }
 
 .rt-element__tooltip {
