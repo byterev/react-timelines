@@ -1,10 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import moment from 'moment'
 
-const Grid = ({ time, grid }) => (
+const Grid = ({ scrollTo, time, grid }) => (
   <div className="rt-grid">
     {grid.map(({ id, start, end }) => (
-      <div key={id} className="rt-grid__cell" style={time.toStyleLeftAndWidth(start, end)} />
+      <div key={id} className={`rt-grid__cell ${moment(scrollTo).format('DD/MMM/YYYY') === moment(start).format('DD/MMM/YYYY') ? 'rt-grid_selected' : ''}`} style={time.toStyleLeftAndWidth(start, end)} />
     ))}
   </div>
 )

@@ -62,6 +62,7 @@ class Timeline extends Component {
       toggleTrackOpen,
       enableSticky = false,
       scrollToNow,
+      scrollTo
     } = this.props
 
     const { time, timelineViewportWidth, sidebarWidth } = this.state
@@ -86,6 +87,7 @@ class Timeline extends Component {
           timebar={timebar}
           toggleTrackOpen={toggleTrackOpen}
           scrollToNow={scrollToNow}
+          scrollTo={scrollTo}
           time={time}
           isOpen={isOpen}
           onLayoutChange={this.handleLayoutChange}
@@ -120,6 +122,7 @@ Timeline.propTypes = {
   toggleTrackOpen: PropTypes.func,
   enableSticky: PropTypes.bool,
   scrollToNow: PropTypes.bool,
+  scrollTo: PropTypes.instanceOf(Date),
 }
 
 export default Timeline

@@ -33,7 +33,7 @@ class Timeline extends Component {
   }
 
   render() {
-    const { now, time, timebar, tracks, sticky, clickElement } = this.props
+    const { now, time, timebar, tracks, sticky, clickElement, scrollTo } = this.props
 
     const { pointerDate, pointerVisible, pointerHighlighted } = this.state
 
@@ -57,7 +57,7 @@ class Timeline extends Component {
           width={time.timelineWidthStyle}
           sticky={sticky}
         />
-        <Body time={time} grid={grid} tracks={tracks} clickElement={clickElement} />
+        <Body time={time} scrollTo={scrollTo} grid={grid} tracks={tracks} clickElement={clickElement} />
       </div>
     )
   }

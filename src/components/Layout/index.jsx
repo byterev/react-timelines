@@ -38,7 +38,7 @@ class Layout extends PureComponent {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { enableSticky, isOpen } = this.props
+    const { enableSticky, isOpen, scrollTo } = this.props
     const { isSticky, scrollLeft } = this.state
 
     if (enableSticky && isSticky) {
@@ -54,6 +54,9 @@ class Layout extends PureComponent {
     if (isOpen !== prevProps.isOpen) {
       this.handleLayoutChange()
     }
+
+    if(scrollTo !== prevProps.scrollTo)
+      this.scrollTo()
   }
 
   componentWillUnmount() {
@@ -74,6 +77,12 @@ class Layout extends PureComponent {
     if (scrollToNow) {
       this.timeline.current.scrollLeft = time.toX(now) - 0.5 * timelineViewportWidth
     }
+  }
+
+  scrollTo = () => {
+    const { time, scrollTo, timelineViewportWidth } = this.props
+    if (scrollTo instanceof Date)
+      this.timeline.current.scrollLeft = time.toX(scrollTo) - 0.5 * timelineViewportWidth
   }
 
   updateTimelineBodyScroll = () => {
@@ -168,6 +177,7 @@ class Layout extends PureComponent {
       timelineViewportWidth,
       clickElement,
       clickTrackButton,
+      scrollTo
     } = this.props
 
     const { isSticky, headerHeight, scrollLeft } = this.state
@@ -194,6 +204,7 @@ class Layout extends PureComponent {
             <Timeline
               now={now}
               time={time}
+              scrollTo={scrollTo}
               timebar={timebar}
               tracks={tracks}
               sticky={{
