@@ -71,15 +71,6 @@ class Timeline extends Component {
 
     return (
       <div className="rt">
-        <Controls
-          isOpen={isOpen}
-          toggleOpen={toggleOpen}
-          zoomIn={zoomIn}
-          zoomOut={zoomOut}
-          zoom={zoom}
-          zoomMin={zoomMin}
-          zoomMax={zoomMax}
-        />
         <Layout
           enableSticky={enableSticky}
           now={now}
