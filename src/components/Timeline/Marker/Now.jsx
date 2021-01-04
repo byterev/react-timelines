@@ -16,7 +16,7 @@ class NowMarker extends PureComponent {
   currentDate = () => {
     const { time } = this.props
 
-    setTimeout(this.currentDate, 1000*60)
+    setTimeout(this.currentDate, 1000 * 60)
 
     this.setState({
       now: moment().locale('pt'),
@@ -31,7 +31,7 @@ class NowMarker extends PureComponent {
   render() {
     const { time, visible } = this.props
     return (
-      <Marker modifier="now" x={this.state.position} visible={visible}>
+      <Marker modifier="now" x={time.toX(this.state.now)} visible={visible}>
         <div>
           <div>Agora</div>
           <strong>{this.state.now.format('HH[h]mm DD MMM')}</strong>
