@@ -16,7 +16,6 @@ const handleTooltip = (id, e) => {
   let x = e.clientX;
   let y = e.clientY;
 
-  console.log(id, tooltip, x, y)
   tooltip.style.left = x + 'px';
   tooltip.style.top = (y - 6) + 'px';
 }
