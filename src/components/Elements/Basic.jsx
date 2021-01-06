@@ -11,15 +11,25 @@ const buildDataAttributes = (attributes = {}) => {
   return value
 }
 
-const Basic = ({ title, percentage, start, end, style, classes, dataSet, tooltip }) => (
-  <div className={createClasses('rt-element', classes)} style={style} {...buildDataAttributes(dataSet)}>
+const handleTooltip = (id, e) => {
+  const tooltip = document.getElementById(id);
+  let x = e.clientX;
+  let y = e.clientY;
+
+  console.log(id, tooltip, x, y)
+  tooltip.style.left = x + 'px';
+  tooltip.style.top = (y - 6) + 'px';
+}
+
+const Basic = ({ title, id, percentage, start, end, style, classes, dataSet, tooltip }) => (
+  <div onMouseMove={(e) => handleTooltip(id, e)} className={createClasses('rt-element', classes)} style={style} {...buildDataAttributes(dataSet)}>
     <div className="rt-element__content" aria-hidden="true">
       <div className="rt-element__title">{title}</div>
     </div>
     { percentage !== null &&
-      <div className="rt-element-percentange" style={{width: percentage + '%' }} aria-hidden="true"></div>
+      <div className="rt-element-percentange" style={{ width: percentage + '%' }} aria-hidden="true"></div>
     }
-    <div className="rt-element__tooltip">
+    <div id={id} className="rt-element__tooltip">
       {tooltip ? (
         // eslint-disable-next-line react/no-danger
         <div dangerouslySetInnerHTML={{ __html: tooltip.split('\n').join('<br>') }} />

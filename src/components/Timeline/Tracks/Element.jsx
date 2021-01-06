@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import BasicElement from '../../Elements/Basic'
 
 const Element = props => {
-  const { time, style, percentage, title, start, end, classes, dataSet, tooltip, clickElement } = props
+  const { time, style, id, percentage, title, start, end, classes, dataSet, tooltip, clickElement } = props
 
   const mouseDownCoords = e => {
     window.checkForDrag = e.clientX
@@ -29,6 +29,7 @@ const Element = props => {
       <BasicElement
         title={title}
         start={start}
+        id={id}
         percentage={percentage}
         end={end}
         style={style}
@@ -48,6 +49,7 @@ Element.propTypes = {
   classes: PropTypes.arrayOf(PropTypes.string.isRequired),
   dataSet: PropTypes.shape({}),
   title: PropTypes.string,
+  percentage: PropTypes.string,
   start: PropTypes.instanceOf(Date).isRequired,
   end: PropTypes.instanceOf(Date).isRequired,
   tooltip: PropTypes.string,
