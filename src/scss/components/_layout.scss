@@ -16,6 +16,7 @@
   display: inline-block;
   width: $react-timelines-sidebar-width;
   vertical-align: top;
+  border-top: $react-timelines-border-width solid $react-timelines-keyline-color;
 }
 
 .rt-layout__main {
