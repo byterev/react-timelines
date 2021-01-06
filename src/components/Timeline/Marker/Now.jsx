@@ -16,8 +16,6 @@ class NowMarker extends PureComponent {
   currentDate = () => {
     const { time } = this.props
 
-    setTimeout(this.currentDate, 1000 * 60)
-
     this.setState({
       now: moment().locale('pt'),
       position: time.toX(moment().locale('pt').toDate())
