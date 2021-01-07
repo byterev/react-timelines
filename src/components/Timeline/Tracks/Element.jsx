@@ -49,7 +49,7 @@ Element.propTypes = {
   classes: PropTypes.arrayOf(PropTypes.string.isRequired),
   dataSet: PropTypes.shape({}),
   title: PropTypes.string,
-  percentage: PropTypes.string,
+  percentage: PropTypes.number,
   start: PropTypes.instanceOf(Date).isRequired,
   end: PropTypes.instanceOf(Date).isRequired,
   tooltip: PropTypes.string,
