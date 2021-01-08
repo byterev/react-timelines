@@ -1,3 +1,5 @@
+$toggle-button-delay: 0.3s;
+
 .rt-track-key {}
 
 .rt-track-key__entry {
@@ -54,21 +56,32 @@
   width: $icon-size;
   height: $icon-size;
   margin-right: 10px;
-  background: $react-timelines-text-color no-repeat center/10px;
+  background: no-repeat center/20px;
   color: transparent;
+  cursor: pointer;
+  border-radius: 50%;
+  transition-duration: $toggle-button-delay;
 
-  &:hover,
-  &:focus {
-    background-color: darken($react-timelines-text-color, 20%);
+  &:hover {
+    background-color: rgb(91, 154, 184);
   }
 }
 
 .rt-track-key__toggle--close {
-  background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iOCIgdmlld0JveD0iMTYgMjQgMjQgOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTYgMjRoMjR2OEgxNnoiIGZpbGw9IiNmZmYiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==');
+  // transition-duration: $toggle-button-delay;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black' width='18px' height='18px'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z'/%3E%3C/svg%3E");
+  border: 0;
+  &:hover {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white' width='18px' height='18px'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z'/%3E%3C/svg%3E");
+  }
 }
 
 .rt-track-key__toggle--open {
-  background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjUiIHZpZXdCb3g9IjE2IDE1IDI0IDI1IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbGw9IiNmZmYiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PHBhdGggZD0iTTMyIDE2djI0aC04VjE2eiIvPjxwYXRoIGQ9Ik0xNiAyNGgyNHY4SDE2eiIvPjwvZz48L3N2Zz4=');
+  // transition-duration: $toggle-button-delay;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black' width='18px' height='18px'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z'/%3E%3C/svg%3E");
+  &:hover {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white' width='18px' height='18px'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z'/%3E%3C/svg%3E");
+  }
 }
 
 .rt-track-key__title {
@@ -76,6 +89,12 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+}
+
+.rt-track-key__subtitle {
+  position: absolute;
+  margin-left: 30px;
+  color: grey;
 }
 
 .rt-track-key__side-button {
