@@ -47,6 +47,7 @@
   color: white;
   transform: translateX(-50%) translateY(-100%) scale(0);
   pointer-events: none;
+  min-width: 170px;
 
   &::before {
     $size: 6px;
@@ -59,6 +60,22 @@
     transform: translateX(-50%);
     content: ' ';
   }
+
+  .title {
+    margin-bottom: 12px;
+    font-weight: bold;
+  }
+
+  .details {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .details-title {
+    font-weight: bold;
+  }
+
+  .details-data {}
 }
 
 .rt-element:hover > .rt-element__tooltip,

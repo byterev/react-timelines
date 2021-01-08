@@ -34,12 +34,12 @@ const Basic = ({ title, id, percentage, start, end, style, classes, dataSet, too
         <div dangerouslySetInnerHTML={{ __html: tooltip.split('\n').join('<br>') }} />
       ) : (
           <div>
-            <div>{title}</div>
-            <div>
-              <strong>Ínicio:</strong> {moment(start).format('HH[h]mm DD MMM')}
+            <div className="title">{title}</div>
+            <div className="details">
+              <span className="details-title">Ínicio:</span> <span className="details-data">{moment(start).format('HH:mm DD MMM')}</span>
             </div>
-            <div>
-              <strong>Fim:</strong> {moment(end).format('HH[h]mm DD MMM')}
+            <div className="details">
+              <span className="details-title">Fim:</span> <span className="details-data">{moment(end).format('HH:mm DD MMM')}</span>
             </div>
           </div>
         )}
