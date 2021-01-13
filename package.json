@@ -1,9 +1,10 @@
 {
-  "name": "react-timelines",
-  "version": "2.7.2",
-  "description": "React Timelines",
+  "name": "react-timelines-power",
+  "version": "2.8.0",
+  "description": "React Timelines adapted to Power",
   "main": "lib/index.js",
   "scripts": {
+    "prepare": "npm run build",
     "clean": "rimraf lib coverage",
     "build:js": "babel src/ -d lib/",
     "watch:js": "babel -w src/ -d lib/",
@@ -22,25 +23,10 @@
     "prepublish": "npm run clean && npm run build",
     "demo:deploy": "./demo/ops/deploy.sh"
   },
-  "keywords": [
-    "timeline",
-    "schedule",
-    "history",
-    "react",
-    "gantt",
-    "horizontal",
-    "library",
-    "scroll",
-    "scss",
-    "sass",
-    "tracks",
-    "time"
-  ],
-  "repository": "git@github.com:JSainsburyPLC/react-timelines.git",
-  "author": "JSainsburyPLC",
+  "repository": "git@github.com:byterev/react-timelines.git",
+  "author": "byterev",
   "license": "MIT",
   "dependencies": {
-    "moment": "^2.29.1",
     "prop-types": "^15.7.2"
   },
   "files": [
@@ -50,6 +36,7 @@
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
+    "moment": "^2.29.1",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
@@ -75,7 +62,8 @@
   },
   "peerDependencies": {
     "react": ">=16",
-    "react-dom": ">=16"
+    "react-dom": ">=16",
+    "moment": "^2"
   },
   "jest": {
     "rootDir": "./src",
