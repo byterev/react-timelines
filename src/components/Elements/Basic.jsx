@@ -25,8 +25,8 @@ const Basic = ({ title, id, percentage, start, end, style, classes, dataSet, too
     <div className="rt-element__content" aria-hidden="true">
       <div className="rt-element__title">{title}</div>
     </div>
-    { percentage !== null &&
-      <div className="rt-element-percentange" style={{ width: percentage + '%' }} aria-hidden="true"></div>
+    { percentage !== undefined || percentage !== null &&
+      <div className="rt-element-percentange" style={{ width: percentage >= 100 ? 100 : percentange + '%' }} aria-hidden="true"></div>
     }
     <div id={id} className="rt-element__tooltip">
       {tooltip ? (
