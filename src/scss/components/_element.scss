@@ -6,6 +6,8 @@
   line-height: $height;
   background: #06f;
   color: #fff;
+  display: flex;
+  justify-content: center;
 }
 
 .rt-element__content {
@@ -15,9 +17,9 @@
   white-space: nowrap;
   font-weight: bold;
   text-overflow: ellipsis;
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
+  right: 20px;
+  left: 20px;
+  position: sticky;
 }
 
 .rt-element-percentange {
