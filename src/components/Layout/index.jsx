@@ -55,7 +55,7 @@ class Layout extends PureComponent {
       this.handleLayoutChange()
     }
 
-    if(scrollTo !== prevProps.scrollTo)
+    if (scrollTo !== prevProps.scrollTo)
       this.scrollTo()
   }
 
@@ -177,7 +177,8 @@ class Layout extends PureComponent {
       timelineViewportWidth,
       clickElement,
       clickTrackButton,
-      scrollTo
+      scrollTo,
+      layout
     } = this.props
 
     const { isSticky, headerHeight, scrollLeft } = this.state
@@ -202,6 +203,7 @@ class Layout extends PureComponent {
             onMouseUp={this.onHorizScrollLeft}
             onScroll={isSticky ? this.handleScrollX : noop}>
             <Timeline
+              layout={layout}
               now={now}
               time={time}
               scrollTo={scrollTo}

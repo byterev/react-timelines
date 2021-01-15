@@ -20,9 +20,10 @@
   right: 20px;
   left: 20px;
   position: sticky;
+  z-index: 1;
 }
 
-.rt-element-percentange {
+.rt-element-percentage {
   $height: $react-timelines-track-height - 2 * $react-timelines-element-spacing;
 
   padding: 0 10px;
@@ -31,11 +32,11 @@
   position: absolute;
   background-color: #61b15ac4;
   border-radius: 4px;
+  left: 0;
 }
 
 .rt-element__title {
   font-size: 0.7rem;
-  z-index: 1;
 }
 
 .rt-element__tooltip {

@@ -62,7 +62,8 @@ class Timeline extends Component {
       toggleTrackOpen,
       enableSticky = false,
       scrollToNow,
-      scrollTo
+      scrollTo,
+      layout
     } = this.props
 
     const { time, timelineViewportWidth, sidebarWidth } = this.state
@@ -72,6 +73,7 @@ class Timeline extends Component {
     return (
       <div className="rt">
         <Layout
+          layout={layout}
           enableSticky={enableSticky}
           now={now}
           tracks={tracks}

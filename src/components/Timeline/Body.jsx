@@ -4,9 +4,9 @@ import PropTypes from 'prop-types'
 import Tracks from './Tracks'
 import Grid from './Grid'
 
-const Body = ({ scrollTo, time, grid, tracks, clickElement }) => (
+const Body = ({ layout, scrollTo, time, grid, tracks, clickElement }) => (
   <div className="rt-timeline__body">
-    {grid && <Grid scrollTo={scrollTo} time={time} grid={grid} />}
+    {grid && <Grid layout={layout} scrollTo={scrollTo} time={time} grid={grid} />}
     <Tracks time={time} tracks={tracks} clickElement={clickElement} />
   </div>
 )
