@@ -115,8 +115,14 @@ class Layout extends PureComponent {
     raf(this.updateTimelineHeaderScroll)
   }
 
-  calculateSidebarWidth = () =>
-    this.sidebar.current.offsetWidth + getNumericPropertyValue(this.layout.current, 'margin-left')
+  calculateSidebarWidth = () => {
+    let aux = 0;
+
+    if (this.sidebar.current !== undefined || this.sidebar.current !== null)
+      aux = this.sidebar.current.offsetWidth + getNumericPropertyValue(this.layout.current, 'margin-left')
+
+    return aux;
+  }
 
   calculateTimelineViewportWidth = () => this.timeline.current.offsetWidth
 
