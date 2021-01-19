@@ -118,15 +118,17 @@ class Layout extends PureComponent {
   calculateSidebarWidth = () => {
     let aux = 0;
 
-    if (this.sidebar.current !== undefined && this.sidebar.current !== null)
-      aux = this.sidebar.current.offsetWidth + getNumericPropertyValue(this.layout.current, 'margin-left');
+    // if (this.sidebar.current !== undefined && this.sidebar.current !== null)
+    aux = this.sidebar.current.offsetWidth + getNumericPropertyValue(this.layout.current, 'margin-left');
 
     return aux;
   }
 
   calculateTimelineViewportWidth = () => {
     if (this.timeline.current !== undefined && this.timeline.current !== null)
-      this.timeline.current.offsetWidth;
+      return this.timeline.current.offsetWidth;
+
+    return 0;
   }
 
   onHorizScrollDown = e => {
