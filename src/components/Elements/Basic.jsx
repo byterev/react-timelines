@@ -23,10 +23,10 @@ const handleTooltip = (id, e) => {
 const Basic = ({ title, id, percentage, start, end, style, classes, dataSet, tooltip }) => (
   <div onMouseMove={(e) => handleTooltip(id, e)} className={createClasses('rt-element', classes)} style={style} {...buildDataAttributes(dataSet)}>
     <div className="rt-element__content" aria-hidden="true">
-      <div className="rt-element__title">{title}</div>
+      <div className="rt-element__title">{title + (percentage ? ' - ' + percentage + '%' : '')}</div>
     </div>
     { percentage !== undefined && percentage !== null &&
-      <div className="rt-element-percentage" style={{ width: percentage >= 100 ? 100 : percentage + '%' }} aria-hidden="true"></div>
+      <div className="rt-element-percentage" style={{ width: percentage >= 100 ? '100%' : percentage + '%' }} aria-hidden="true"></div>
     }
     <div id={id} className="rt-element__tooltip">
       {tooltip ? (
