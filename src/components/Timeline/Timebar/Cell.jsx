@@ -1,11 +1,20 @@
 import React from 'react'
+import moment from 'moment'
 import PropTypes from 'prop-types'
 
-const Cell = ({ time, title, start, end }) => (
-  <div className="rt-timebar__cell" style={time.toStyleLeftAndWidth(start, end)}>
-    {title}
-  </div>
-)
+const Cell = ({ time, title, start, end }) => {
+  let isWeekend = false;
+  const mTime = moment(start);
+  console.log(mTime.isoWeekday());
+  if (mTime.isoWeekday() === 6 || mTime.isoWeekday() === 7)
+    isWeekend = true;
+
+  return (
+    <div className={`rt-timebar__cell ${isWeekend ? 'rt-timebar__cell-weekend' : ''}`} style={time.toStyleLeftAndWidth(start, end)}>
+      {title}
+    </div>
+  )
+}
 
 Cell.propTypes = {
   time: PropTypes.shape({

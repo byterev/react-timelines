@@ -16,5 +16,9 @@
 }
 
 .rt-grid_selected {
-  background-color:rgba(88, 88, 88, 0.116);
+  background-color:rgba(88, 88, 88, 0.116) !important;
+}
+
+.rt-grid_weekend {
+  background-color:#ffdaed59;
 }
