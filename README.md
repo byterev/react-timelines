@@ -4,10 +4,7 @@
 
 ```sh
 # with npm
-npm install react-timelines
-
-# or with Yarn
-yarn add react-timelines
+npm install byterev/react-timelines
 ```
 
 ## Development
@@ -15,4 +12,6 @@ yarn add react-timelines
 ```sh
 npm install
 npm run watch
+
+npm run build:css
 ```
