@@ -5,7 +5,6 @@ import PropTypes from 'prop-types'
 const Cell = ({ time, title, start, end }) => {
   let isWeekend = false;
   const mTime = moment(start);
-  console.log(mTime.isoWeekday());
   if (mTime.isoWeekday() === 6 || mTime.isoWeekday() === 7)
     isWeekend = true;
 
